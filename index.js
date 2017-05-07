@@ -71,7 +71,7 @@ module.exports = function EnrageTimer(dispatch) {
               break
             case 0:
               nextEnragePercent = Math.floor(boss.curHp / (boss.maxHp * 0.01) - 10)
-			  messageString = (nextEnragePercent > 0) ? `** Unenraged ** Next enrage at ${nextEnragePercent}%.` : `** Unenraged **`;
+	messageString = (nextEnragePercent > 0) ? `** Unenraged ** Next enrage at ${nextEnragePercent}%.` : `** Unenraged **`;
               sendChatMessage(messageString)
               clearInterval(enragedTimer)
               enragedTime = 36
@@ -98,16 +98,19 @@ module.exports = function EnrageTimer(dispatch) {
         message(` !!! PARTY NOTICE ENABLED !!!`);
     }  
 	else if (args[1] == 'off') {
-      if (enabled) {
-        enabled = false
+		if (enabled) {
+        	enabled = false
 		SEND_TO_PARTY = false
 		channelNumber = 0
-        if (enragedTimer) {
-          clearInterval(enragedTimer)
-          enragedTime = 36
-          enraged = false
-          boss = null
-        }
+		if (totalTimer) clearInterval(totalTimer)
+        	if (enragedTimer) clearInterval(enragedTimer)
+		totalTime = 0
+		totalEnragedTime = 0
+          	enragedTime = 36
+		engaged = false
+          	enraged = false
+          	boss = null
+        
         message(` Enrage Notice DISABLED`);
       } 
     }
@@ -163,14 +166,14 @@ module.exports = function EnrageTimer(dispatch) {
   }
 
   function message(msg) {
-		dispatch.toClient('S_CHAT', 1, {
-			channel: 24,
-			authorID: 0,
-			unk1: 0,
-			gm: 0,
-			unk2: 0,
-			authorName: '',
-			message: '[Enrage-timer]' +msg
-		});
+	dispatch.toClient('S_CHAT', 1, {
+		channel: 24,
+		authorID: 0,
+		unk1: 0,
+		gm: 0,
+		unk2: 0,
+		authorName: '',
+		message: '[Enrage-timer]' +msg
+	});
 	}
 }
