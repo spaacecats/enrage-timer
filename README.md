@@ -7,7 +7,7 @@ TERA-proxy module that notifies you about enrage, 20 and 10s remaining time, tel
   * Private channel number can be specified **`!et p 5`** or **`!et private 3`** (1-8) otherwise its set to private chat 1
 * **`!et name anyNameHere`** - allows you to change message sender name (**`E-T`** by default)
 * **`!et state`** - returns system message letting you know about current set variables
-* **`!et off`** - disables notice
+* **`!et off`** - disables notice (disabled by default)
 
 It's strongly recommended to only use this for private notices. (unless u are playing in EU, kappa)
 
