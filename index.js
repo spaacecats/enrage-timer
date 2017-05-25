@@ -50,7 +50,6 @@ module.exports = function EnrageTimer(dispatch) {
 		enragedTime = 36
 		enraged = false
 		engaged = false
-		boss = null
     }
   })
   
