@@ -75,6 +75,7 @@ module.exports = function EnrageTimer(dispatch) {
               clearInterval(enragedTimer)
               enragedTime = 36
               enraged = false
+	      boss = null
               break
           }
 		  totalEnragedTime += 1
